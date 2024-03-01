@@ -106,3 +106,4 @@ function totalAmountOfSpice(num) {
 
 totalAmountOfSpice(111);
 totalAmountOfSpice(450);
+
