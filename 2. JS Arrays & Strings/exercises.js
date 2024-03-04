@@ -69,14 +69,21 @@ console.log(sortNumbers([1, 65, 3, 52, 48, 63, 31, -3, 18, 56]));
 // 5. Reveal Words
 function revealWords(codedWords, sentence) {
     let codedWordsArr = codedWords.split(', ');
+    let sentenceToArr = sentence.split(' ');
     for (let word of codedWordsArr) {
-        sentence = sentence.replace('*'.repeat(word.length), word);
+        for (let i = 0; i < sentenceToArr.length; i++) {
+            if ('*'.repeat(word.length) === sentenceToArr[i]) {
+                sentenceToArr[i] = word
+            };
+        };
+        // sentence = sentence.replace('*'.repeat(word.length), word);
+        sentence = sentenceToArr.join(' ');
     };
     console.log(sentence);
 };
 
 revealWords('great', 'softuni is ***** place for learning new programming languages');
-revealWords('great, learning', 'softuni is ***** place for ******** new programming languages');
+revealWords('great, learning, languages', 'softuni is ***** place for ******** new programming *********');
 
 // 6. Modern Times of #(HashTag)
 function findHashtagWords(sentence) {
